@@ -8,7 +8,9 @@ public class ReusableMethods {
 	static WebDriver driver = DriverFactory.getDriver();
 
 	public static WebDriverWait getWait() {
+		System.out.println("wait method is working");
 		return new WebDriverWait(driver, Duration.ofSeconds(10));
+
 	}
 
 }
