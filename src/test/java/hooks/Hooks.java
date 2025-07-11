@@ -12,7 +12,7 @@ public class Hooks {
 	}
 	@After
     public void setDown() {
-       // DriverFactory.quitDriver(); 
+        DriverFactory.quitDriver(); 
         System.out.println("The browser is CLOSED");
     }
 
