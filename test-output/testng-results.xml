@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-11T11:47:19 CEST" name="Default suite" finished-at="2025-07-11T11:47:44 CEST" duration-ms="24674">
+  <suite started-at="2025-07-11T13:35:33 CEST" name="Default suite" finished-at="2025-07-11T13:35:45 CEST" duration-ms="12241">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@40005471]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-07-11T11:47:19 CEST" name="Default test" finished-at="2025-07-11T11:47:44 CEST" duration-ms="24674">
+    <test started-at="2025-07-11T13:35:33 CEST" name="Default test" finished-at="2025-07-11T13:35:45 CEST" duration-ms="12241">
       <class name="runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@40005471]" started-at="2025-07-11T11:47:19 CEST" name="setUpClass" finished-at="2025-07-11T11:47:20 CEST" duration-ms="999" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@40005471]" started-at="2025-07-11T13:35:33 CEST" name="setUpClass" finished-at="2025-07-11T13:35:34 CEST" duration-ms="1455" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@122d6c22]]>
+                <![CDATA[org.testng.TestRunner@4b97c4ad]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@40005471]" started-at="2025-07-11T11:47:20 CEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-11T11:47:44 CEST" duration-ms="23475" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@40005471]" started-at="2025-07-11T13:35:34 CEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-11T13:35:45 CEST" duration-ms="10644" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,10 +34,24 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Not redirected to Signup/login  page expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Not redirected to Signup/login  page expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at stepdefinitions.RegisterUISteps.clickSignup_button(RegisterUISteps.java:30)
+at ✽.the user clicks the "Signup / Login" button(file:///Users/ozgemevademiroz/eclipse-workspace/ecom-ui-api-tests/src/test/resources/features/register_ui.feature:6)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@40005471]" started-at="2025-07-11T11:47:44 CEST" name="tearDownClass" finished-at="2025-07-11T11:47:44 CEST" duration-ms="114" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@40005471]" started-at="2025-07-11T13:35:45 CEST" name="tearDownClass" finished-at="2025-07-11T13:35:45 CEST" duration-ms="60" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

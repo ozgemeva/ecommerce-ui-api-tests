@@ -14,14 +14,22 @@ public class ReusableMethods {
 	}
 
 	public static void handleButton(WebElement button_name) {
-		try {
-			WebDriverWait wait = getWait();
-			wait.until(ExpectedConditions.elementToBeClickable(button_name));
-			button_name.click();
-			System.out.println("Clicked button: " + button_name.getAccessibleName());
-		} catch (Exception e) {
-			System.out.println("Button not clickable or already handled: " + e.getMessage());
-		}
+		  try {
+	            WebDriverWait wait = getWait();
+	            wait.until(ExpectedConditions.elementToBeClickable(button_name));
+	            button_name.click();
+	            System.out.println("Clicked button: " + button_name.getAccessibleName());
+	        } catch (Exception e) {
+	            System.out.println("Button not clickable or already handled: " + e.getMessage());
+	        }
 	}
+    public static boolean waitForUrlToContain(String partialUrl, int timeoutSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(timeoutSeconds));
+            return wait.until(ExpectedConditions.urlContains(partialUrl));
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
 
 }

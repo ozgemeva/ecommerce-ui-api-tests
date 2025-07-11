@@ -5,6 +5,7 @@ import org.testng.Assert;
 
 import TestDataSets.TestData;
 import Utils.DriverFactory;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import pages.RegistrationPage;
@@ -26,10 +27,19 @@ public class RegisterUISteps {
 		System.out.println(" --> Button Name: " + buttonName);
 		if (buttonName.equalsIgnoreCase("Signup / Login")) {
 			registrationPage.clickSignUp_button();
-			Assert.assertTrue(registerDriver.getCurrentUrl().contains("Signup/login"), "Not redirected to Signup/login  page");
+			Assert.assertTrue(registerDriver.getCurrentUrl().contains("Signup/login"),
+					"Not redirected to Signup/login  page");
 		} else {
 			Assert.fail("Unsupported or unknown button name: " + buttonName);
 		}
+			
+	}
+	
+	@And("the user enters {string} and {string}")
+	public void enter_name_mail(String username,String mail){
+		registrationPage.enterMailAndName(username, mail);
+	
 	}
 
+	
 }
