@@ -1,7 +1,7 @@
 package hooks;
 
+import org.testng.annotations.AfterMethod;
 import Utils.DriverFactory;
-import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 public class Hooks {
@@ -10,7 +10,7 @@ public class Hooks {
 		DriverFactory.startDriver("chrome");
 		System.out.println("The browser is STARTED");
 	}
-	@After
+	@AfterMethod
     public void setDown() {
         DriverFactory.quitDriver(); 
         System.out.println("The browser is CLOSED");

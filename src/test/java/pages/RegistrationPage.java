@@ -2,8 +2,6 @@ package pages;
 
 import TestDataSets.TestData;
 import Utils.ReusableMethods;
-import groovyjarjarantlr4.v4.parse.ANTLRParser.throwsSpec_return;
-import io.opentelemetry.sdk.trace.data.ExceptionEventData;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,12 +15,13 @@ public class RegistrationPage {
 	WebDriverWait wait = ReusableMethods.getWait();
 
 	String Url;
+
 	@FindBy(xpath = "//a[normalize-space()='Signup / Login']")
 	WebElement signup_login_button;
-	@FindBy(xpath = "//button[.//p[text()='Consent']]")
-	WebElement consent_btn;
+
 	@FindBy(xpath = "//*[@data-qa='signup-name']")
 	WebElement signUp_name;
+
 	@FindBy(xpath = "//*[@data-qa='signup-email']")
 	WebElement email_element;
 
@@ -40,17 +39,16 @@ public class RegistrationPage {
 
 	public void clickSignUp_button() {
 		try {
-			wait.until(ExpectedConditions.elementToBeClickable(consent_btn));
-			ReusableMethods.handleButton(consent_btn);
+			ReusableMethods.clickConsentIfPresent();
+			ReusableMethods.handleButton(signup_login_button);
 			System.out.println(" --> signup_login_button text: " + signup_login_button.getText());
-			wait.until(ExpectedConditions.elementToBeClickable(signup_login_button));
-			signup_login_button.click();
 		} catch (Exception e) {
-			System.out.println("Exception: " + e.getMessage());
+			System.out.println("Exception in clickSignUp_button: " + e.getMessage());
 			throw e;
 		}
 	}
-	public void enterMailAndName(String name,String email) {
+
+	public void enterMailAndName(String name, String email) {
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(signUp_name));
 			wait.until(ExpectedConditions.elementToBeClickable(email_element));
@@ -62,9 +60,5 @@ public class RegistrationPage {
 			System.out.println("Error while entering name and email: " + e.getMessage());
 			throw e;
 		}
-	
-		
 	}
-
-	
 }
