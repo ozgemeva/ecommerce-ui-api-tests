@@ -63,13 +63,16 @@ public class RegistrationPage {
 			signUp_name.sendKeys(name);
 			email_element.sendKeys(email);
 			
-			ReusableMethods.handleButton(signup_button_for_new_account);
-			
 		} catch (Exception e) {
 			System.out.println("Error while entering name and email: " + e.getMessage());
 			throw e;
 		}
 	}
+	
+	public void clickSignUpButton_for_new_account() {
+		ReusableMethods.handleButton(signup_button_for_new_account);
+	}
+	
 	
 	
 }

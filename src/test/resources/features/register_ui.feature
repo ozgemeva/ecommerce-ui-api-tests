@@ -5,10 +5,11 @@ Feature: Basic Navigation
     Given the user is on the homepage
     When the user clicks the "Signup / Login" button
     And the user enters "<name>" and "<email>"
+    And clicks the Signup button
     
   Examples:
   | name        | email                |
-  | TestUser01  | test01@example.com   |
+  | TestUser05  | test05@example.com   |
   
 #Feature: User Registration
 #Scenario Outline: New user registration
