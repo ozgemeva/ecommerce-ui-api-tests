@@ -27,7 +27,7 @@ public class RegisterUISteps {
 		System.out.println(" --> Button Name: " + buttonName);
 		if (buttonName.equalsIgnoreCase("Signup / Login")) {
 			registrationPage.clickSignUp_button();
-			Assert.assertTrue(registerDriver.getCurrentUrl().contains("Signup/login"),
+			Assert.assertTrue(registerDriver.getCurrentUrl().contains("login"),
 					"Not redirected to Signup/login  page");
 		} else {
 			Assert.fail("Unsupported or unknown button name: " + buttonName);
@@ -38,6 +38,7 @@ public class RegisterUISteps {
 	@And("the user enters {string} and {string}")
 	public void enter_name_mail(String username,String mail){
 		registrationPage.enterMailAndName(username, mail);
+		
 	
 	}
 

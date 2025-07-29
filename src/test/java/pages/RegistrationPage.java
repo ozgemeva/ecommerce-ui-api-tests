@@ -24,7 +24,11 @@ public class RegistrationPage {
 
 	@FindBy(xpath = "//*[@data-qa='signup-email']")
 	WebElement email_element;
+	
+	@FindBy(xpath = "//button[@data-qa='signup-button']")
+	WebElement signup_button_for_new_account;
 
+	
 	public RegistrationPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -52,13 +56,20 @@ public class RegistrationPage {
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(signUp_name));
 			wait.until(ExpectedConditions.elementToBeClickable(email_element));
-			signUp_name.clear();
-			email_element.clear();
+			
+			ReusableMethods.clearTextIfNotEmpty(signUp_name);
+			ReusableMethods.clearTextIfNotEmpty(email_element);
+
 			signUp_name.sendKeys(name);
 			email_element.sendKeys(email);
+			
+			ReusableMethods.handleButton(signup_button_for_new_account);
+			
 		} catch (Exception e) {
 			System.out.println("Error while entering name and email: " + e.getMessage());
 			throw e;
 		}
 	}
+	
+	
 }
