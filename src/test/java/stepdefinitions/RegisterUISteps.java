@@ -1,10 +1,12 @@
 package stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import TestDataSets.TestData;
 import Utils.DriverFactory;
+import Utils.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -25,18 +27,23 @@ public class RegisterUISteps {
 	@When("the user clicks the {string} button")
 	public void clickSignup_button(String buttonName) {
 		System.out.println(" --> Button Name: " + buttonName);
-		if (buttonName.equalsIgnoreCase("Signup / Login")) {
-			registrationPage.clickSignUp_button();
-			Assert.assertTrue(registerDriver.getCurrentUrl().contains("login"), "Not redirected to Signup/login  page");
-		} else {
+		if (!buttonName.equalsIgnoreCase("Signup / Login")) {
 			Assert.fail("Unsupported or unknown button name: " + buttonName);
 		}
+
+		registrationPage.clickSignUp_button();
+
+		boolean onLogin = ReusableMethods.getWait().until(ExpectedConditions.urlContains("/login"));
+		Assert.assertTrue(onLogin, "Not redirected to /login page");
 
 	}
 
 	@And("the user enters {string} and {string}")
 	public void enter_name_mail(String username, String mail) {
+
 		registrationPage.enterMailAndName(username, mail);
+		Assert.assertFalse(registrationPage.getEnteredName().isBlank(), "Name was not entered");
+		Assert.assertFalse(registrationPage.getEnteredEmail().isBlank(), "Email was not entered");
 
 	}
 

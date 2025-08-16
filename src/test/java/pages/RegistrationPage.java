@@ -24,14 +24,21 @@ public class RegistrationPage {
 
 	@FindBy(xpath = "//*[@data-qa='signup-email']")
 	WebElement email_element;
-	
+
 	@FindBy(xpath = "//button[@data-qa='signup-button']")
 	WebElement signup_button_for_new_account;
 
-	
 	public RegistrationPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+
+	public String getEnteredName() {
+		return signUp_name.getAttribute("value");
+	}
+
+	public String getEnteredEmail() {
+		return email_element.getAttribute("value");
 	}
 
 	public boolean isOnHomePage() {
@@ -54,25 +61,23 @@ public class RegistrationPage {
 
 	public void enterMailAndName(String name, String email) {
 		try {
-			wait.until(ExpectedConditions.elementToBeClickable(signUp_name));
-			wait.until(ExpectedConditions.elementToBeClickable(email_element));
-			
+			wait.until(ExpectedConditions.and(ExpectedConditions.visibilityOf(signUp_name),
+					ExpectedConditions.visibilityOf(email_element)));
+
 			ReusableMethods.clearTextIfNotEmpty(signUp_name);
 			ReusableMethods.clearTextIfNotEmpty(email_element);
 
 			signUp_name.sendKeys(name);
 			email_element.sendKeys(email);
-			
+
 		} catch (Exception e) {
 			System.out.println("Error while entering name and email: " + e.getMessage());
 			throw e;
 		}
 	}
-	
+
 	public void clickSignUpButton_for_new_account() {
 		ReusableMethods.handleButton(signup_button_for_new_account);
 	}
-	
-	
-	
+
 }
