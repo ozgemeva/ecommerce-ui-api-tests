@@ -60,8 +60,7 @@ public class RegisterUISteps {
 	public void userEnterAccountInformation() {
 		registerDriver = DriverFactory.getDriver();
 		registrationPage = new RegistrationPage(registerDriver);
-		registerDriver.get(TestData.BASE_URL);
-		Assert.assertTrue(registrationPage.userEnterAccountInformationRight(), "Not on signup page!");
+		Assert.assertTrue(registrationPage.isOnSignupPage(), "Not on signup page!");
 
 	}
 
