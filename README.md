@@ -1,15 +1,15 @@
-Ecommerce UI & API Tests
+# Ecommerce UI & API Tests
 A maintainable test automation framework for an e-commerce application, covering both UI flows (login, cart, checkout) and API validations.
 
-*Features:*
-UI Tests with Selenium + Cucumber + TestNG
-API Tests with RestAssured / HTTP client
-Page Object Model (POM) structure
-Reusable utilities (waits, driver factory, reporting)
-Parallel execution with TestNG
-Test reports (TestNG HTML, ExtentReports)
+# Features:
+ - **UI Tests with Selenium + Cucumber + TestNG**
+ - **API Tests with RestAssured / HTTP client**
+ - **Page Object Model (POM) structure**
+ - **Reusable utilities (waits, driver factory, reporting)**
+ - **Parallel execution with TestNG**
+ - **Test reports (TestNG HTML, ExtentReports)**
 
-*Project Structure*
+# Project Structure
 src
  ├── main/java
  │    └── Utils          # DriverFactory, ReusableMethods
