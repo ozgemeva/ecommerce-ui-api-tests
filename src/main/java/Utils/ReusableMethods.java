@@ -62,7 +62,7 @@ public class ReusableMethods {
 			System.out.println("Consent handling failed: " + e.getMessage());
 		}
 	}
-	
+
 	public static void clearTextIfNotEmpty(WebElement element) {
 		String value = element.getAttribute("value");
 		if (value != null && !value.trim().isEmpty()) {

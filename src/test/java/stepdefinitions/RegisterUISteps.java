@@ -9,6 +9,7 @@ import Utils.DriverFactory;
 import Utils.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.RegistrationPage;
 
@@ -52,6 +53,15 @@ public class RegisterUISteps {
 
 		registrationPage.clickSignUpButton_for_new_account();
 		Assert.assertTrue(registerDriver.getCurrentUrl().contains("signup"), "Not redirected to Signup  page");
+
+	}
+
+	@Then("the user should see the Enter Account Information section")
+	public void userEnterAccountInformation() {
+		registerDriver = DriverFactory.getDriver();
+		registrationPage = new RegistrationPage(registerDriver);
+		registerDriver.get(TestData.BASE_URL);
+		Assert.assertTrue(registrationPage.userEnterAccountInformationRight(), "Not on signup page!");
 
 	}
 

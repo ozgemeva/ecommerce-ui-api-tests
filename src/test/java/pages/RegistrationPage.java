@@ -80,4 +80,11 @@ public class RegistrationPage {
 		ReusableMethods.handleButton(signup_button_for_new_account);
 	}
 
+	public boolean userEnterAccountInformationRight() {
+		wait.until(ExpectedConditions.urlContains(TestData.BASE_URL + "/signup"));
+		Url = driver.getCurrentUrl();
+		System.out.println(" --> currentUrl : " + Url + " Base_Url : " + TestData.BASE_URL);
+		return Url.contains(TestData.BASE_URL + "/signup");
+	}
+
 }
