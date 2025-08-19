@@ -1,3 +1,4 @@
+
 package stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
@@ -60,7 +61,7 @@ public class RegisterUISteps {
 	public void userEnterAccountInformation() {
 		registerDriver = DriverFactory.getDriver();
 		registrationPage = new RegistrationPage(registerDriver);
-		Assert.assertTrue(registrationPage.isOnSignupPage(), "Not on signup page!");
+		Assert.assertTrue(registrationPage.isOnSignupPage(TestData.signUpURL), "Not on signup page!");
 
 	}
 

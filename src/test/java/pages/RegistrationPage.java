@@ -80,14 +80,14 @@ public class RegistrationPage {
 		ReusableMethods.handleButton(signup_button_for_new_account);
 	}
 
-	public boolean isOnSignupPage() {
+	public boolean isOnSignupPage(String expectedPathUrl) {
 		try {
-			wait.until(ExpectedConditions.urlContains("/signup"));
+			wait.until(ExpectedConditions.urlContains(expectedPathUrl));
 
 			String currentUrl = driver.getCurrentUrl();
-			System.out.println(" --> currentUrl: " + currentUrl + " | Expected contains: /signup");
+			System.out.println(" --> currentUrl: " + currentUrl + " | Expected contains:" + expectedPathUrl);
+			return currentUrl.contains(expectedPathUrl);
 
-			return currentUrl.contains("/signup");
 		} catch (Exception e) {
 			System.out.println("Signup page not loaded: " + e.getMessage());
 			return false;
