@@ -7,6 +7,7 @@ A maintainable test automation framework for an e-commerce application, covering
  - **Page Object Model (POM) structure**
  - **Reusable utilities (waits, driver factory, reporting)**
  - **Parallel execution with TestNG**
+ - **CI/CD process Jenkins**
  - **Test reports (TestNG HTML, ExtentReports)**
 
 # Project Structure
