@@ -5,7 +5,6 @@ pipeline {
 
   options {
     timestamps()
-    ansiColor('xterm')
     buildDiscarder(logRotator(numToKeepStr: '20'))
   }
 
@@ -16,19 +15,21 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'mvn -q -U -B clean install -DskipTests'
+        ansiColor('xterm') {
+          sh 'mvn -q -U -B clean install -DskipTests'
+        }
       }
     }
 
     stage('Test') {
       steps {
-        sh 'mvn -q -B test'
+        ansiColor('xterm') {
+          sh 'mvn -q -B test'
+        }
       }
       post {
         always {
-          // JUnit format report(Surefire)
           junit '**/target/surefire-reports/*.xml'
-          // Optinal: output/additional arşivle
           archiveArtifacts artifacts: 'target/**/*.(log|html|png|json)', allowEmptyArchive: true
         }
       }
