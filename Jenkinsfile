@@ -30,7 +30,7 @@ pipeline {
       post {
         always {
           junit '**/target/surefire-reports/*.xml'
-          archiveArtifacts artifacts: 'target/**/*.(log|html|png|json)', allowEmptyArchive: true
+          archiveArtifacts artifacts: 'target/**/*.log, target/**/*.html, target/**/*.png, target/**/*.json', allowEmptyArchive: true
         }
       }
     }
