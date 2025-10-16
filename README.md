@@ -32,9 +32,10 @@ src
 
 # Example Scenarios
 - **Login: user can sign up / login successfully**
-- **register: user can sign up / login successfully** 
-- **register: create user API response**
-- **login: user can sign up / login successfully**
+- **login: user can sign up API / login successfully**
+- **Register: user can sign up / login successfully** 
+- **Register: create user API response**
+
 
 # Reports
 - **After test execution:  test-output/ contains TestNG HTML reports**
