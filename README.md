@@ -32,8 +32,9 @@ src
 
 # Example Scenarios
 - **Login: user can sign up / login successfully**
-- **Cart: add/remove items, validate cart total**
-- **API: validate product list API response**
+- **register: user can sign up / login successfully** 
+- **register: create user API response**
+- **login: user can sign up / login successfully**
 
 # Reports
 - **After test execution:  test-output/ contains TestNG HTML reports**
