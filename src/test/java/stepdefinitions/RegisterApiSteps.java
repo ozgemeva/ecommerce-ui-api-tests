@@ -18,7 +18,7 @@ public class RegisterApiSteps {
 	Response response;
 	String body;
 	int response_code;
-	String response_status;
+	String response_message;
 	String uniqueEmail;
 
 	@Given("the API endpoint is {string}")
@@ -65,9 +65,9 @@ public class RegisterApiSteps {
 	@And("the response should contain success")
 	public void the_response_should_contain_success() {
 
-		response_status = response.asString();
-		System.out.println("response_status: "+response_status);
-		assertTrue(response_status.contains("User created!"), "Expected success message not found in response!");
+		response_message = response.asString();
+		System.out.println("response_message: "+response_message);
+		assertTrue(response_message.contains("User created!"), "Expected success message not found in response!");
 	}
 
 }
