@@ -1,109 +1,120 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.ecommerce</groupId>
-  <artifactId>ecom-ui-api-tests</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+	<groupId>com.ecommerce</groupId>
+	<artifactId>ecom-ui-api-tests</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-  <properties>
-    <maven.compiler.release>21</maven.compiler.release>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<properties>
+		<maven.compiler.release>21</maven.compiler.release>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <selenium.version>4.35.0</selenium.version>         <!-- Chrome 139 CDP uyarısını azaltır -->
-    <cucumber.version>7.23.0</cucumber.version>
-    <testng.version>7.11.0</testng.version>
-    <webdrivermanager.version>6.1.0</webdrivermanager.version>
-    <surefire.version>3.2.5</surefire.version>
-  </properties>
+		<selenium.version>4.35.0</selenium.version>         <!-- Chrome 139 CDP-->
+		<cucumber.version>7.23.0</cucumber.version>
+		<testng.version>7.11.0</testng.version>
+		<webdrivermanager.version>6.1.0</webdrivermanager.version>
+		<surefire.version>3.2.5</surefire.version>
+		<rest-assured.version>5.4.0</rest-assured.version>
+		<json.version>5.4.0</json.version>
+	</properties>
 
-  <dependencies>
-    <!-- Web UI -->
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>${selenium.version}</version>
-    </dependency>
+	<dependencies>
+		<!-- Web UI -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
 
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>${webdrivermanager.version}</version>
-    </dependency>
+		<!-- REST Assured-->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest-assured.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-    <!-- TestNG (KOŞU ALTYAPISI) -->
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
-      <scope>test</scope>
-    </dependency>
+		<!-- JSON Path -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-path</artifactId>
+			<version>${json.version}</version>
 
-    <!-- Cucumber + TestNG runner -->
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
-      <version>${cucumber.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-testng</artifactId>
-      <version>${cucumber.version}</version>
-      <scope>test</scope>
-    </dependency>
+		</dependency>
 
-    <!-- API testleri -->
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
-      <version>5.5.5</version>
-      <scope>test</scope>
-    </dependency>
+		<!-- webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>${webdrivermanager.version}</version>
+		</dependency>
 
-    <!-- Data üretimi -->
-    <dependency>
-      <groupId>com.github.javafaker</groupId>
-      <artifactId>javafaker</artifactId>
-      <version>1.0.2</version>
-    </dependency>
+		<!-- TestNG -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-    <!-- SLF4J uyarısını sustur (veya basit logger) -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>2.0.16</version>
-      <scope>test</scope>
-    </dependency>
+		<!-- Cucumber + TestNG runner -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-    <!-- NOT: JUnit ve cucumber-junit kaldırıldı; TestNG kullanıyoruz -->
-  </dependencies>
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.2</version>
+		</dependency>
 
-  <build>
-    <plugins>
-      <!-- Java 21 ile derle -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
-        <configuration>
-          <release>${maven.compiler.release}</release>
-        </configuration>
-      </plugin>
+		<!-- SLF4J -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>2.0.16</version>
+			<scope>test</scope>
+		</dependency>
 
-      <!-- Testleri TestNG suite (testng.xml) ile koştur -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire.version}</version>
-        <configuration>
-          <testNGXmlFiles>
-            <testNGXmlFile>testng.xml</testNGXmlFile>
-          </testNGXmlFiles>
-          <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-          <argLine>-Dfile.encoding=UTF-8</argLine>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Java 21-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<release>${maven.compiler.release}</release>
+				</configuration>
+			</plugin>
+
+			<!-- Testleri TestNG suite (testng.xml) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire.version}</version>
+				<configuration>
+					<testNGXmlFiles>
+						<testNGXmlFile>testng.xml</testNGXmlFile>
+					</testNGXmlFiles>
+					<reportsDirectory>
+						${project.build.directory}/surefire-reports</reportsDirectory>
+					<argLine>-Dfile.encoding=UTF-8</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
