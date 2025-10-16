@@ -6,6 +6,7 @@ import static org.testng.Assert.assertTrue;
 import java.net.URI;
 
 import TestDataSets.TestData;
+import api.ApiHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -33,7 +34,7 @@ public class RegisterApiSteps {
 
 		uniqueEmail = "testApi" + System.currentTimeMillis() + "@mail.com";
 		System.out.println("Dynamic email: " + uniqueEmail);
-		response = registerFormField(uniqueEmail);
+		response = ApiHelper.registerFormField(uniqueEmail,register_endpoint);
 	
 		System.out.println("create body request and Response body: ");
 		response.prettyPrint();
@@ -43,16 +44,7 @@ public class RegisterApiSteps {
 
 	}
 
-	public Response registerFormField(String uniqueEmail) {
-		
-		return given().contentType("multipart/form-data").multiPart("name", "test1").multiPart("email", uniqueEmail)
-				.multiPart("password", "123456").multiPart("title", "Mrs").multiPart("birth_date", "13")
-				.multiPart("birth_month", "10").multiPart("birth_year", "1994").multiPart("firstname", "Test")
-				.multiPart("lastname", "TestLastname").multiPart("company", "TestCompany")
-				.multiPart("address1", "TestAddress").multiPart("address2", "").multiPart("country", "Netherlands")
-				.multiPart("zipcode", "testZipcodeAA11").multiPart("state", "Holland").multiPart("city", "nord")
-				.multiPart("mobile_number", "0612345678").when().post(register_endpoint).then().extract().response();
-	}
+
 
 	@Then("the response status code should be 200")
 	public void the_response_status_code_should_be_200() {
