@@ -36,7 +36,13 @@ src
 - **Register: user can sign up / login successfully** 
 - **Register: create user API response**
 
+### Test Reports
+- **ExtentReport (recommended):** `/reports/ExtentReport.html`
+- **TestNG Default Report:** `/test-output/index.html` (auto-generated)
 
 # Reports
 - **After test execution:  test-output/ contains TestNG HTML reports**
 - **ExtentReports / Allure (if enabled)**
+- ### 📊 Example Report (ExtentReports)
+![Extent Report Screenshot](docs/images/ExtentReport.png)
+
