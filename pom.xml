@@ -18,9 +18,17 @@
 		<surefire.version>3.2.5</surefire.version>
 		<rest-assured.version>5.4.0</rest-assured.version>
 		<json.version>5.4.0</json.version>
+		<extentreports.version>5.1.1</extentreports.version>
 	</properties>
 
+
 	<dependencies>
+		<!-- Selenium, TestNG vs zaten varsa bırak -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports.version}</version>
+		</dependency>
 		<!-- Web UI -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>

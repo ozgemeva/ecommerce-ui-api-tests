@@ -1,4 +1,4 @@
-@register
+@registerUi
 Feature: Basic Navigation
 
   Scenario: Only homepage check

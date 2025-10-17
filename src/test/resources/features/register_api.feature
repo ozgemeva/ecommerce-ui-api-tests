@@ -1,4 +1,4 @@
-@api
+@registerApi
 Feature: User Registration API
  
   Scenario: Successful user registration
